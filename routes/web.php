@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::resource('/productos', ProductoController::class);
 
 //Route::get('/crear/',[ProductoController::class,'create']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

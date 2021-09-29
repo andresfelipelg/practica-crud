@@ -3,6 +3,7 @@
 @section('contenido')
    <h3>Guardar productos</h3>
     <form class="formulario" action="{{('/productos')}}" method="post">
+        <a class="btn" href="{{route('productos.index')}}">Ver<br><i class="far fa-eye"></i></a>
         @csrf
         <div class="mb-3">
             <label class="form-label">Nombre</label>

@@ -45,6 +45,7 @@ class ProductoController extends Controller
         $productos->nombre = $request->nombre;
         $productos->cantidad = $request->cantidad;
         $productos->save();
+        return redirect('/productos');
         
     }
 
@@ -68,7 +69,8 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        return view('productos.edit',compact("producto")); 
     }
 
     /**
@@ -80,7 +82,9 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        $producto->update($request->all());
+        return redirect('/productos');
     }
 
     /**
@@ -91,6 +95,8 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        $producto->delete();
+        return redirect('/productos');
     }
 }
