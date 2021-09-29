@@ -17,7 +17,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        return view('productos.index',compact("productos")); 
     }
 
     /**
@@ -41,8 +42,8 @@ class ProductoController extends Controller
     {
         
         $productos = new Producto;
-        $productos->nombre= $request->nombre;
-        $productos->cantidad= $request->cantidad;
+        $productos->nombre = $request->nombre;
+        $productos->cantidad = $request->cantidad;
         $productos->save();
         
     }
@@ -55,7 +56,8 @@ class ProductoController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = Producto::findOrFail($id);
+        return view('productos.show',compact("producto")); 
     }
 
     /**
