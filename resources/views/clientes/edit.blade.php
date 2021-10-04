@@ -1,25 +1,34 @@
 @extends('plantilla.plantilla')
 
 @section('contenido')
-   <h3>Editar Productos</h3>
-    <form class="formulario" action="/productos/{{$producto->id}}" method="post">
+   <h3>Editar Cliente</h3>
+    <form class="formulario" action="/clientes/{{$cliente->id}}" method="post">
         @csrf
         <input type="hidden" name="_method" value="PUT">
         <div class="mb-3">
-            <label class="form-label">Nombre</label>
-            <input class="form-control" type="text" name="nombre"
-            value="{{$producto->nombre}}" >
-            
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Cantidad</label>
-            <input class="form-control" type="number" name="cantidad"
-            value="{{$producto->cantidad}}">
-        </div>
+          <label class="form-label">Nombre</label>
+          <input class="form-control" type="text" name="nombre">
+      </div>
+      <div class="mb-3">
+          <label class="form-label">Apellido</label>
+          <input class="form-control" type="text" name="apellido">
+      </div>
+      <div class="mb-3">
+          <label class="form-label">Fecha Nacimiento</label>
+          <input class="form-control" type="date" name="fecha_nacimiento">
+      </div>
+      <div class="mb-3">
+          <label class="form-label">celular</label>
+          <input class="form-control" type="text"name="celular">
+      </div>
+      <div class="mb-3">
+          <label class="form-label">correo</label>
+          <input class="form-control" type="email" name="correo">
+      </div>
         <input class="btn btn-success" type="submit" value="Editar">
     </form>
 
-    <form action="/productos/{{$producto->id}}" method="post">
+    <form action="/clientes/{{$cliente->id}}" method="post">
         @csrf
         <input type="hidden" name="_method" value="DELETE">
         <input class="btn btn-danger" id="btnEliminar" type="submit" value="eliminar">

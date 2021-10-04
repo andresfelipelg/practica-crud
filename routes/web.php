@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,11 @@ Route::get('/', function () {
 });
 
 Route::resource('/productos', ProductoController::class);
+Route::resource('/clientes', ClienteController::class);
 
 //Route::get('/crear/',[ProductoController::class,'create']);
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
